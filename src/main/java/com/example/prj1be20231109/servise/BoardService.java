@@ -1,9 +1,12 @@
-package com.example.prj1be20231109.service;
+
+package com.example.prj1be20231109.servise;
 
 import com.example.prj1be20231109.domain.Board;
 import com.example.prj1be20231109.mapper.BoardMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -33,5 +36,17 @@ public class BoardService {
         }
 
         return true;
+    }
+
+    public List<Board> list() {
+        return mapper.selectAll();
+    }
+
+    public Board get(Integer id) {
+        return mapper.selectById(id);
+    }
+
+    public boolean remove(Integer id) {
+        return mapper.deleteById(id) == 1;
     }
 }
