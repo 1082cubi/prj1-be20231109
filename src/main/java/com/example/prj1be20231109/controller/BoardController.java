@@ -1,7 +1,8 @@
 package com.example.prj1be20231109.controller;
 
 import com.example.prj1be20231109.domain.Board;
-import com.example.prj1be20231109.service.BoardService;
+
+import com.example.prj1be20231109.servise.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
