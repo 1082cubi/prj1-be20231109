@@ -56,13 +56,26 @@ public class MemberController {
         Member member = service.getMember(id);
         return ResponseEntity.ok(member);
     }
+
     @DeleteMapping
     private ResponseEntity delete(String id) {
         // TODO : 로그인 했는 지? -> 안했으면 401
         // TODO : 자기 정보인지? -> 아니면 403
-        if(service.deleteMember(id)) {
+        if (service.deleteMember(id)) {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.internalServerError().build();
     }
+
+    @PutMapping("edit")
+    public ResponseEntity edit(@RequestBody Member member) {
+        // TODO: 로그인 했는지? 자기정보인지?
+
+        if (service.update(member)) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
 }
